@@ -7,8 +7,8 @@ The `index.html` includes the SDK in a `script` tag and `main.js` performs the c
 ## Getting started
 
 * Clone the project
-* Run `npm install'
-* Run `npm run dev'
+* Run `npm install`
+* Run `npm run dev`
 
 ## Register application
 
