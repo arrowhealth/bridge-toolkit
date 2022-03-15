@@ -1,4 +1,4 @@
-# Bridge Starter
+# Bridge Starter Apps
 
 The starter templates provide examples on using [Bridge SDK](https://arrowhealth.github.io/bridge-sdk/) on different platforms:
 
