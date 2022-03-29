@@ -15,7 +15,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <h2>Bridge Starter (Vue)</h2>
+  <h2>Starter App (Vue)</h2>
 
   <div class="section">
     <div class="title">Bridge User</div>

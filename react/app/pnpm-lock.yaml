@@ -1,14 +1,14 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@arrowhealth/bridge-sdk': ^1.0.1
+  '@arrowhealth/bridge-sdk': ^2.0.0
   '@vitejs/plugin-react': ^1.0.7
   react: ^17.0.2
   react-dom: ^17.0.2
   vite: ^2.8.0
 
 dependencies:
-  '@arrowhealth/bridge-sdk': 1.0.1
+  '@arrowhealth/bridge-sdk': 2.0.0
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
 
@@ -25,8 +25,8 @@ packages:
       '@jridgewell/trace-mapping': 0.3.4
     dev: true
 
-  /@arrowhealth/bridge-sdk/1.0.1:
-    resolution: {integrity: sha512-GdkfLeK5sVH6vlwoAByCst+3spGH2DNDr3M7hnWBtOAN9KJ/8IOOZNlrMz0NHd7FpMNb2+pD2BiT3ppNAw/FVg==}
+  /@arrowhealth/bridge-sdk/2.0.0:
+    resolution: {integrity: sha512-86ln4pJgL+Yi1C/kqAcjV74RLsm5eKRdzTxwAZKg2Lwddk26DTrfcHOVOJb3/QkeyqCDCP6Ao79ht3y96xDpEQ==}
     dev: false
 
   /@babel/code-frame/7.16.7:
