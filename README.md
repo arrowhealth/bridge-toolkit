@@ -26,5 +26,3 @@ There are 3 projects that you should run to depending on the framework you want 
 * Application
 * Smart Tile
 * Emulator
-
-
