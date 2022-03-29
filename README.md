@@ -55,7 +55,7 @@ pnpm vanilla
 pnpm vue
 ```
 
-By default the following run on the following ports:
+The projects will run on the following ports:
 
 * **Emulator** -  http://localhost:4000
 * **Application** - http://localhost:4444
