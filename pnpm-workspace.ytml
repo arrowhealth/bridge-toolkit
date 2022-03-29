@@ -1,0 +1,6 @@
+packages:
+  - 'emulator/**'
+  - 'react/**'
+  - 'svelte/**'
+  - 'vanilla/**'
+  - 'vue/**'

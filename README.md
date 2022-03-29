@@ -21,8 +21,53 @@ allows you to configure your applications as well as patient information for tes
 
 ## Getting started
 
-There are 3 projects that you should run to depending on the framework you want to use
+It is recommended to install `pnpm`, today's most widely supported package manager for node.
 
-* Application
-* Smart Tile
-* Emulator
+Click here to install: https://pnpm.io/installation
+
+### Install dependencies
+
+```shell
+pnpm install:all
+```
+
+### Running React Project
+
+```shell
+pnpm react
+```
+
+### Running Svelte Project
+
+```shell
+pnpm svelte
+```
+
+### Running Vanilla Project
+
+```shell
+pnpm vanilla
+```
+
+### Running Vue Project
+
+```shell
+pnpm vue
+```
+
+By default the following run on the following ports:
+
+* **Emulator** -  http://localhost:4000
+* **Application** - http://localhost:4444
+* **Tile** - http://localhost:4111
+
+Open the emulator you should open in your browser to see the examples.
+
+
+## Configuring the emulator
+
+The emulator has a few configurable files located in the [emulator/public](emulator/public) directory.
+
+* `auth.json` - it is most likely that you will not modify this file.
+* `config.json` - modify this file add your own applications
+* `patients.json` - modify this file to add your own mock patients

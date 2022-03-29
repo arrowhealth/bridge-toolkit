@@ -1,0 +1,14 @@
+{
+  "name": "bridge-app-dev-toolkit",
+  "version": "0.0.0",
+  "scripts": {
+    "install:all": "pnpm recursive install",
+    "react": "concurrently \"cd react/app && pnpm dev\" \"cd react/tile && pnpm dev\" \"cd emulator && pnpm dev\"",
+    "svelte": "concurrently \"cd svelte/app && pnpm dev\" \"cd svelte/tile && pnpm dev\" \"cd emulator && pnpm dev\"",
+    "vanilla": "concurrently \"cd vanilla/app && pnpm dev\" \"cd vanilla/tile && pnpm dev\" \"cd emulator && pnpm dev\"",
+    "vue": "concurrently \"cd vue/app && pnpm dev\" \"cd vue/tile && pnpm dev\" \"cd emulator && pnpm dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0"
+  }
+}
