@@ -47,9 +47,9 @@ class App extends Component {
           </pre>
         </div>
 
-        <div class="section">
-          <div class="title">Badge</div>
-          <div class="actions">
+        <div className="section">
+          <div className="title">Badge</div>
+          <div className="actions">
             <button onClick={() => bridge.setBadgeCount(0)}>0</button>
             <button onClick={() => bridge.setBadgeCount(9)}>9</button>
             <button onClick={() => bridge.setBadgeCount(99)}>99</button>
@@ -58,9 +58,9 @@ class App extends Component {
           </div>
         </div>
 
-        <div class="section">
-          <div class="title">Tile</div>
-          <div class="actions">
+        <div className="section">
+          <div className="title">Tile</div>
+          <div className="actions">
             <button onClick={() => bridge.showTile()}>Show</button>
             <button onClick={() => bridge.hideTile()}>Hide</button>
             <button onClick={() => bridge.enableTile()}>Enable</button>
@@ -68,20 +68,18 @@ class App extends Component {
           </div>
         </div>
 
-        <div class="section">
-          <div class="title">Smart Tile</div>
-          <p>These actions would only be done in your smart tile. They are here
-            for demonstration purposes only
-          </p>
-          <div class="actions">
+        <div className="section">
+          <div className="title">Smart Tile</div>
+          <p>These actions would only be done in your smart tile. They are here for demonstration purposes only</p>
+          <div className="actions">
             <button onClick={() => bridge.captureUserEvents()}>Capture User Events</button>
             <button onClick={() => bridge.releaseUserEvents()}>Release User Events</button>
           </div>
         </div>
 
-        <div class="section">
-          <div class="title">Application</div>
-          <div class="actions">
+        <div className="section">
+          <div className="title">Application</div>
+          <div className="actions">
             <button onClick={() => bridge.closeApp()}>Close App</button>
           </div>
         </div>
