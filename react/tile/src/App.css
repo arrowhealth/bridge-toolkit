@@ -1,0 +1,22 @@
+.tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.tile.valid {
+  border-color: lime;
+}
+
+.tile.invalid {
+  border-color: red;
+}
+
+.tile.none {
+  border-color: aqua;
+}
