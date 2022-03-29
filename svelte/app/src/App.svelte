@@ -58,7 +58,7 @@
 
   <div class="section">
     <div class="title">Smart Tile</div>
-    <div>These actions would only be done in your smart tile. They are here for demonstration purposes only</div>
+    <p>These actions would only be done in your smart tile. They are here for demonstration purposes only</p>
     <div class="actions">
       <button on:click={() => bridge.captureUserEvents()}>Capture User Events</button>
       <button on:click={() => bridge.releaseUserEvents()}>Release User Events</button>
