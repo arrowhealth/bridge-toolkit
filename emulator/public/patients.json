@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "first": "John",
+    "last": "Smith",
+    "dob": "01/23/1945",
+    "sex": "M"
+  },
+  {
+    "id": "2",
+    "first": "Martha",
+    "last": "Jones",
+    "dob": "09/14/1956",
+    "sex": "F"
+  },
+  {
+    "id": "3",
+    "first": "Xander",
+    "last": "Freemont",
+    "dob": "05/09/1973",
+    "sex": "M"
+  },
+  {
+    "id": "4",
+    "first": "Alexa",
+    "last": "Beaumonte",
+    "dob": "11/13/1968",
+    "sex": "F"
+  }
+]
