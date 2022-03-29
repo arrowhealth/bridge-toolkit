@@ -1,5 +1,5 @@
 {
-  "name": "vue-bridge-starter",
+  "name": "vue-bridge-app",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@arrowhealth/bridge-sdk": "^1.0.1",
+    "@arrowhealth/bridge-sdk": "^2.0.0",
     "vue": "^3.2.25"
   },
   "devDependencies": {
