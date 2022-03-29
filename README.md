@@ -12,7 +12,7 @@ The project provide starters application built using [Bridge SDK](https://arrowh
 - [Vue](vue)
 - [Svelte](svelte)
 
-Each platform provides an Application and a Smart Tile example.
+Each platform provides an Application and a SmartTile example.
 
 ## Emulator
 
@@ -59,7 +59,7 @@ By default the following run on the following ports:
 
 * **Emulator** -  http://localhost:4000
 * **Application** - http://localhost:4444
-* **Tile** - http://localhost:4111
+* **SmartTile** - http://localhost:4111
 
 Open the emulator you should open in your browser to see the examples.
 
