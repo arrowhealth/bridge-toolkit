@@ -66,8 +66,8 @@ pnpm vue
 The projects will run on the following ports:
 
 * **Emulator** -  http://localhost:4000
-* **Application** - http://localhost:4444
-* **SmartTile** - http://localhost:4111
+* **Application** - http://localhost:4001
+* **SmartTile** - http://localhost:4002
 
 Open the emulator you should open in your browser to see the examples.
 
