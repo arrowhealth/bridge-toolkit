@@ -33,11 +33,15 @@ pnpm install:all
 
 ### Running React Project
 
+The following command will run the Emulator, Application and SmartTile projects concurrently from a single commandline.
+
 ```shell
 pnpm react
 ```
 
 ### Running Svelte Project
+
+The following command will run the Emulator, Application and SmartTile projects concurrently from a single commandline.
 
 ```shell
 pnpm svelte
@@ -45,11 +49,15 @@ pnpm svelte
 
 ### Running Vanilla Project
 
+The following command will run the Emulator, Application and SmartTile projects concurrently from a single commandline.
+
 ```shell
 pnpm vanilla
 ```
 
 ### Running Vue Project
+
+The following command will run the Emulator, Application and SmartTile projects concurrently from a single commandline.
 
 ```shell
 pnpm vue
