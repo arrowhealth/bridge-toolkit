@@ -13,6 +13,9 @@ const collapseToolbar = ref(false)
 const currentScreen = ref('setup')
 const showPassword = ref(false)
 
+bridgeStore.setAccountUrl('http://localhost:3000')
+bridgeStore.setApiUrl('http://localhost:5000')
+
 const userForm = reactive({
   realm: 'bridge',
   username: '',
