@@ -1,6 +1,7 @@
 {
-  "name": "bridge-app-dev-toolkit",
+  "name": "bridge-toolkit",
   "version": "0.0.0",
+  "private": true,
   "scripts": {
     "install:all": "pnpm recursive install",
     "react": "concurrently \"cd react/app && pnpm dev\" \"cd react/tile && pnpm dev\" \"cd emulator && pnpm dev\"",
