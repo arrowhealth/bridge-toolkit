@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@arrowhealth/bridge-sdk": "^2.0.0",
+    "@arrowhealth/bridge-sdk": "^2.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

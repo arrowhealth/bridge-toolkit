@@ -1,13 +1,13 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@arrowhealth/bridge-sdk': ^2.0.0
+  '@arrowhealth/bridge-sdk': ^2.2.0
   '@vitejs/plugin-vue': ^2.2.0
   vite: ^2.8.0
   vue: ^3.2.25
 
 dependencies:
-  '@arrowhealth/bridge-sdk': 2.0.0
+  '@arrowhealth/bridge-sdk': 2.2.0
   vue: 3.2.31
 
 devDependencies:
@@ -16,8 +16,8 @@ devDependencies:
 
 packages:
 
-  /@arrowhealth/bridge-sdk/2.0.0:
-    resolution: {integrity: sha512-86ln4pJgL+Yi1C/kqAcjV74RLsm5eKRdzTxwAZKg2Lwddk26DTrfcHOVOJb3/QkeyqCDCP6Ao79ht3y96xDpEQ==}
+  /@arrowhealth/bridge-sdk/2.2.0:
+    resolution: {integrity: sha512-8eHFD0fP/UewzX5L+2bRN6T+5F5bc7xWeRovMMQw/kHLlAv8fD7P+Z8PzQ4Q34IPRdID9sYbxJOSuLxf7Arv1Q==}
     dev: false
 
   /@babel/parser/7.17.7:

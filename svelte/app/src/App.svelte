@@ -7,14 +7,28 @@
     patient: null,
   }
 
-  bridge.getAuthUser().then((v) => (state.authUser = v))
-  bridge.getAuthStatus().then((v) => (state.authStatus = v))
-  bridge.getPatient().then((v) => (state.patient = v))
-  bridge.onPatientChanged((v) => (state.patient = v))
+  const getPatient = () => {
+    bridge.getPatient().then(v => {
+      console.log('patient', v)
+      state.patient = v
+    })
+  }
+
+  bridge.getAuthUser().then(v => (state.authUser = v))
+  bridge.getAuthStatus().then(v => (state.authStatus = v))
+  bridge.getPatient().then(v => (state.patient = v))
+  bridge.onPatientChanged(v => (state.patient = v))
 </script>
 
 <main>
   <h2>Starter App (Svelte)</h2>
+
+  <div class="section">
+    <div class="title">Using Bridge SDK v{bridge.version}</div>
+    <div>Inside Bridge: {bridge.inBridge}</div>
+    <div>Inside Iframe: {bridge.inIframe}</div>
+    <div>Inside Popout: {bridge.inPopout}</div>
+  </div>
 
   <div class="section">
     <div class="title">Bridge User</div>
@@ -32,6 +46,7 @@
 
   <div class="section">
     <div class="title">Patient</div>
+    <button on:click={() => getPatient()}>Get Patient</button>
     <pre><code>{JSON.stringify(state.patient, null, 2)}</code></pre>
   </div>
 
@@ -58,7 +73,7 @@
 
   <div class="section">
     <div class="title">Smart Tile</div>
-    <p>These actions would only be done in your smart tile. They are here for demonstration purposes only</p>
+    <p>These actions are performed within a Smart Tile. They are here for demonstration purposes only.</p>
     <div class="actions">
       <button on:click={() => bridge.captureUserEvents()}>Capture User Events</button>
       <button on:click={() => bridge.releaseUserEvents()}>Release User Events</button>

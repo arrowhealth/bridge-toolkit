@@ -9,7 +9,6 @@ const bridgeStore = useBridgeStore()
 const { state: configState, getAuthOptions, getConfig } = useConfigStore()
 const { state: patientState, getPatients } = usePatientStore()
 const selectedAuth = ref()
-const collapseToolbar = ref(false)
 const currentScreen = ref('setup')
 const showPassword = ref(false)
 
@@ -17,11 +16,6 @@ const userForm = reactive({
   realm: 'bridge',
   username: '',
   password: ''
-})
-
-watch(collapseToolbar, val => {
-  if (val) bridgeStore.setToolbarMode('collapsed')
-  else bridgeStore.setToolbarMode('full')
 })
 
 var selectedPatient = ref('')
@@ -109,19 +103,6 @@ onMounted(async () => {
     </div>
 
     <div v-else-if="currentScreen === 'bridge'" class="grid gap-5 p-8">
-      <div class="text-xl">Toolbar</div>
-
-      <div class="flex flex-wrap gap-5">
-        <label>
-          <input type="checkbox" v-model="bridgeStore.state.openAuthAsPopout" />
-          Popout Account
-        </label>
-        <label>
-          <input type="checkbox" v-model="collapseToolbar" />
-          Collapsed
-        </label>
-      </div>
-
       <div class="text-xl">Patient</div>
       <div class="flex flex-wrap items-center gap-2">
         <select v-model="selectedPatient" class="px-2 p-1 border-2 border-gray-200 rounded">
