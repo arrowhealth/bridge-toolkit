@@ -50,6 +50,10 @@ const submit = async () => {
     config.apps.forEach((app: TileApp) => app.status = 'pending')
   }
 
+  const overrides = configState.config.overrides
+  if (overrides?.accountUrl) bridgeStore.setAccountUrl(overrides.accountUrl)
+  if (overrides?.apiUrl) bridgeStore.setApiUrl(overrides.apiUrl)
+  if (overrides?.proxyUrl) bridgeStore.setProxyUrl(overrides.proxyUrl)
 
   bridgeStore.setConfig(config, { includeAccount: ['login', 'user'].includes(selectedAuth.value.id) })
   bridgeStore.showBridge()
@@ -82,13 +86,8 @@ onMounted(async () => {
       </div>
       <div v-if="selectedAuth && selectedAuth.id === 'login'" class="flex flex-wrap gap-2">
         <input name="username" placeholder="Email" class="textinput" v-model="userForm.username" />
-        <input
-          name="password"
-          placeholder="Password"
-          :type="showPassword ? 'text' : 'password'"
-          class="textinput"
-          v-model="userForm.password"
-        />
+        <input name="password" placeholder="Password" :type="showPassword ? 'text' : 'password'" class="textinput"
+          v-model="userForm.password" />
         <button class="btn-icon" @click="showPassword = !showPassword">
           <div v-if="showPassword" class="i-tabler-eye-off"></div>
           <div v-else class="i-tabler-eye"></div>
@@ -105,10 +104,10 @@ onMounted(async () => {
       <div class="flex flex-wrap items-center gap-2">
         <select v-model="selectedPatient" class="px-2 p-1 border-2 border-gray-200 rounded">
           <option value>None</option>
-          <option
-            v-for="patient in patientState.patients"
-            :value="patient"
-          >{{ `${patient.id} - ${patient.first} ${patient.last}` }}</option>
+          <option v-for="patient in patientState.patients" :value="patient">{{
+            `${patient.id} - ${patient.first}
+                      ${patient.last}`
+          }}</option>
         </select>
       </div>
 

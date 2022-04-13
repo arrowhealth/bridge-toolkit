@@ -85,5 +85,10 @@
       "authUrl": "",
       "target": "TAB"
     }
-  ]
+  ],
+  "overrides": {
+    "accountUrl": "https://bridge.arrowhealth.io",
+    "apiUrl": "https://api.bridge.arrowhealth.io",
+    "proxyUrl": "https://proxy.bridge.arrowhealth.io"
+  }
 }
