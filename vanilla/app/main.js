@@ -8,9 +8,16 @@ let state = {
   patient: {}
 }
 
+globalThis.getPatient = () => {
+  bridge.getPatient().then(v => {
+    console.log('patient', v)
+    state.patient = v
+  })
+}
+
 const setState = (updates) => {
   state = {
-    ...state, 
+    ...state,
     ...updates,
   }
   render()
@@ -18,6 +25,12 @@ const setState = (updates) => {
 
 const render = () => document.querySelector('#app').innerHTML = `<div>
   <h2>Starter App (Vanilla JS)</h2>
+  <div class="section">
+    <div class="title">Using Bridge SDK v${bridge.version}</div>
+    <div>Inside Bridge: ${bridge.inBridge.toString()}</div>
+    <div>Inside Iframe: ${bridge.inIframe.toString()}</div>
+    <div>Inside Popout: ${bridge.inPopout.toString()}</div>
+  </div>
 
   <div class="section">
     <div class="title">Bridge User</div>
@@ -35,6 +48,7 @@ const render = () => document.querySelector('#app').innerHTML = `<div>
 
   <div class="section">
     <div class="title">Patient</div>
+    <button onclick="getPatient()">Get Patient</button>
     <pre><code>${JSON.stringify(state.patient, null, 2)}</code></pre>
   </div>
 
@@ -76,7 +90,7 @@ const render = () => document.querySelector('#app').innerHTML = `<div>
       <button onclick="bridge.closeApp()">Close App</button>
     </div>
   </div>
-</div>`    
+</div>`
 
 const mounted = async () => {
   bridge.getAuthUser().then((v) => setState({ authUser: v }))

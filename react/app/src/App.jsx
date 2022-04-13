@@ -12,17 +12,31 @@ class App extends Component {
     }
   }
 
+  getPatient = () => {
+    bridge.getPatient().then(v => {
+      console.log('patient', v)
+      this.setState({ patient: v })
+    })
+  }
+
   componentDidMount() {
-    bridge.getAuthUser().then((v) => this.setState({ authUser: v }))
-    bridge.getAuthStatus().then((v) => this.setState({ authStatus: v }))
-    bridge.getPatient().then((v) => this.setState({ patient: v }))
-    bridge.onPatientChanged((v) => this.setState({ patient: v }))
+    bridge.getAuthUser().then(v => this.setState({ authUser: v }))
+    bridge.getAuthStatus().then(v => this.setState({ authStatus: v }))
+    bridge.getPatient().then(v => this.setState({ patient: v }))
+    bridge.onPatientChanged(v => this.setState({ patient: v }))
   }
 
   render() {
     return (
       <div>
         <h2>Starter App (React)</h2>
+
+        <div className="section">
+          <div className="title">Using Bridge SDK v{bridge.version}</div>
+          <div>Inside Bridge: {bridge.inBridge.toString()}</div>
+          <div>Inside Iframe: {bridge.inIframe.toString()}</div>
+          <div>Inside Popout: {bridge.inPopout.toString()}</div>
+        </div>
 
         <div className="section">
           <div className="title">Bridge User</div>
@@ -42,6 +56,7 @@ class App extends Component {
 
         <div className="section">
           <div className="title">Patient</div>
+          <button onClick={() => this.getPatient()}>Get Patient</button>
           <pre>
             <code>{JSON.stringify(this.state.patient, null, 2)}</code>
           </pre>
@@ -70,7 +85,7 @@ class App extends Component {
 
         <div className="section">
           <div className="title">Smart Tile</div>
-          <p>These actions would only be done in your smart tile. They are here for demonstration purposes only</p>
+          <p>These actions are performed within a Smart Tile. They are here for demonstration purposes only.</p>
           <div className="actions">
             <button onClick={() => bridge.captureUserEvents()}>Capture User Events</button>
             <button onClick={() => bridge.releaseUserEvents()}>Release User Events</button>

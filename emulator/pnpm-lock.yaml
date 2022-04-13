@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@arrowhealth/bridge-sdk': ^2.0.0
+  '@arrowhealth/bridge-sdk': ^2.2.0
   '@iconify-json/tabler': ^1.1.6
   '@unocss/reset': ^0.30.2
   '@vitejs/plugin-vue': ^2.2.0
@@ -12,7 +12,7 @@ specifiers:
   vue-tsc: ^0.29.8
 
 dependencies:
-  '@arrowhealth/bridge-sdk': 2.0.0
+  '@arrowhealth/bridge-sdk': 2.2.1
   vue: 3.2.31
 
 devDependencies:
@@ -37,8 +37,8 @@ packages:
     resolution: {integrity: sha512-MrAQ/MrPSxbh1bBrmwJjORfJymw4IqSHFBXqvxaga3ZdDM+/zokYF8DjyJpSjY2QmpmgQrajDUBJOWrYeARfzA==}
     dev: true
 
-  /@arrowhealth/bridge-sdk/2.0.0:
-    resolution: {integrity: sha512-86ln4pJgL+Yi1C/kqAcjV74RLsm5eKRdzTxwAZKg2Lwddk26DTrfcHOVOJb3/QkeyqCDCP6Ao79ht3y96xDpEQ==}
+  /@arrowhealth/bridge-sdk/2.2.1:
+    resolution: {integrity: sha512-NzUka38rBWW+eyxa+gli2zNFUoQ+OYyPY4hEHPD3LG4TlFQZbF1HwsWYr+Rz4x0pyxYKdNocSxXXgTjWJ3ZmXw==}
     dev: false
 
   /@babel/helper-validator-identifier/7.16.7:

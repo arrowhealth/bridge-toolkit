@@ -6,6 +6,13 @@ const authUser = ref({})
 const authStatus = ref({})
 const patient = ref({})
 
+const getPatient = () => {
+  bridge.getPatient().then(v => {
+    console.log('patient', v)
+    patient.value = v
+  })
+}
+
 onMounted(() => {
   bridge.getAuthUser().then(v => authUser.value = v)
   bridge.getAuthStatus().then(v => authStatus.value = v)
@@ -16,6 +23,12 @@ onMounted(() => {
 
 <template>
   <h2>Starter App (Vue)</h2>
+  <div class="section">
+    <div class="title">Using Bridge SDK v{{ bridge.version }}</div>
+    <div>Inside Bridge: {{ bridge.inBridge }}</div>
+    <div>Inside Iframe: {{ bridge.inIframe }}</div>
+    <div>Inside Popout: {{ bridge.inPopout }}</div>
+  </div>
 
   <div class="section">
     <div class="title">Bridge User</div>
@@ -33,6 +46,7 @@ onMounted(() => {
 
   <div class="section">
     <div class="title">Patient</div>
+    <button @click="getPatient()">Get Patient</button>
     <pre><code>{{ JSON.stringify(patient, null, 2) }}</code></pre>
   </div>
 
@@ -54,6 +68,13 @@ onMounted(() => {
       <button @click="bridge.hideTile()">Hide</button>
       <button @click="bridge.enableTile()">Enable</button>
       <button @click="bridge.disableTile()">Disable</button>
+    </div>
+  </div>
+
+   <div class="section">
+    <div class="title">Smart Tile</div>
+    <p>These actions are performed within a Smart Tile. They are here for demonstration purposes only.</p>
+    <div class="actions">
       <button @click="bridge.captureUserEvents()">Capture User Events</button>
       <button @click="bridge.releaseUserEvents()">Release User Events</button>
     </div>
