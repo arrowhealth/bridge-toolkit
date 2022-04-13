@@ -46,8 +46,6 @@ const submit = async () => {
       username: userForm.username,
       passwordHash: userForm.password
     })
-    console.log(userSession)
-    debugger
     bridgeStore.setUserSession(userSession)
     config.apps.forEach((app: TileApp) => app.status = 'pending')
   }
