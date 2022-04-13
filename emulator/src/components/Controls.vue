@@ -12,8 +12,9 @@ const selectedAuth = ref()
 const currentScreen = ref('setup')
 const showPassword = ref(false)
 
-bridgeStore.setAccountUrl('http://localhost:3000')
-bridgeStore.setApiUrl('http://localhost:5000')
+bridgeStore.setAccountUrl('http://staging.bridge.arrowhealth.io')
+bridgeStore.setApiUrl('https://staging.api.arrowhealth.io')
+bridgeStore.setProxyUrl('http://localhost:10000')
 
 const userForm = reactive({
   realm: 'bridge',
@@ -47,10 +48,8 @@ const submit = async () => {
     bridgeStore.setAuthUser(null)
     const userSession = Object.assign({}, selectedAuth.value.data, {
       username: userForm.username,
-      password: userForm.password
+      passwordHash: userForm.password
     })
-    console.log(userSession)
-    debugger
     bridgeStore.setUserSession(userSession)
     config.apps.forEach((app: TileApp) => app.status = 'pending')
   }
