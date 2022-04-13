@@ -1,6 +1,6 @@
 {
   "name": "@arrowhealth/bridge-toolkit",
-  "version": "1.0.0-rc1",
+  "version": "1.0.0-rc2",
   "private": true,
   "scripts": {
     "install:all": "pnpm recursive install",

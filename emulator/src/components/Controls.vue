@@ -44,7 +44,7 @@ const submit = async () => {
     bridgeStore.setAuthUser(null)
     const userSession = Object.assign({}, selectedAuth.value.data, {
       username: userForm.username,
-      password: userForm.password
+      passwordHash: userForm.password
     })
     console.log(userSession)
     debugger
