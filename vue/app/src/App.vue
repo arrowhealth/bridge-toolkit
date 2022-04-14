@@ -6,13 +6,6 @@ const authUser = ref({})
 const authStatus = ref({})
 const patient = ref({})
 
-const getPatient = () => {
-  bridge.getPatient().then(v => {
-    console.log('patient', v)
-    patient.value = v
-  })
-}
-
 onMounted(() => {
   bridge.getAuthUser().then(v => authUser.value = v)
   bridge.getAuthStatus().then(v => authStatus.value = v)

@@ -20,6 +20,7 @@ watch(selectedPatient, (patient: any) => {
 
 const logout = () => {
   bridgeStore.logout()
+  selectedPatient.value = ''
   currentScreen.value = 'setup'
 }
 
