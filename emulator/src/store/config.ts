@@ -1,10 +1,10 @@
 import { reactive } from "vue"
 
 const state = reactive<{
-  authOptions: any,
+  auth: any,
   config: any
 }>({
-  authOptions: [],
+  auth: [],
   config: null
 })
 
@@ -14,16 +14,16 @@ const getConfig = async () => {
   return state.config
 }
 
-const getAuthOptions = async () => {
+const getAuth = async () => {
   const response = await fetch('auth.json')
-  state.authOptions = await response.json()
-  return state.authOptions
+  state.auth = await response.json()
+  return state.auth
 }
 
 export const useConfigStore = () => {
   return {
     state,
-    getAuthOptions,
+    getAuth,
     getConfig,
   }
 }

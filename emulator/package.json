@@ -1,7 +1,7 @@
 {
   "name": "emulator",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@arrowhealth/bridge-sdk": "^2.2.0",
+    "@vueuse/core": "^8.2.6",
     "vue": "^3.2.25"
   },
   "devDependencies": {

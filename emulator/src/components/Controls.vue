@@ -1,22 +1,17 @@
 <script setup lang="ts">
-import { reactive, ref, watch, onMounted } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 import { useBridgeStore } from '../store/bridge'
 import { TileApp } from '../store/schema'
 import { usePatientStore } from '../store/patient'
 import { useConfigStore } from '../store/config'
+import { useLocalStorage } from '@vueuse/core'
 
 const bridgeStore = useBridgeStore()
-const { state: configState, getAuthOptions, getConfig } = useConfigStore()
+const { state: configState, getAuth, getConfig } = useConfigStore()
 const { state: patientState, getPatients } = usePatientStore()
 const selectedAuth = ref()
 const currentScreen = ref('setup')
-const showPassword = ref(false)
-
-const userForm = reactive({
-  realm: 'bridge',
-  username: '',
-  password: ''
-})
+const selectedId = useLocalStorage('emulator:auth_id', 'mock')
 
 var selectedPatient = ref('')
 watch(selectedPatient, (patient: any) => {
@@ -30,23 +25,17 @@ const logout = () => {
 
 const submit = async () => {
   const config = await getConfig()
+  selectedId.value = selectedAuth.value.id
   // setup auth user
   if (selectedAuth.value.id === 'mock') {
     bridgeStore.setAuthUser(selectedAuth.value.data)
     config.apps.forEach((app: TileApp) => app.status = 'pass')
-  } else if (selectedAuth.value.id === 'none') {
-    bridgeStore.setAuthUser(null)
-    config.apps.forEach((app: TileApp) => app.status = 'pass')
-  } else if (selectedAuth.value.id === 'user') {
+  } else if (selectedAuth.value.id === 'testuser') {
     bridgeStore.setUserSession(selectedAuth.value.data)
     config.apps.forEach((app: TileApp) => app.status = 'pending')
-  } else if (selectedAuth.value.id === 'login') {
+  } else if (selectedAuth.value.id === 'bridgeuser') {
     bridgeStore.setAuthUser(null)
-    const userSession = Object.assign({}, selectedAuth.value.data, {
-      username: userForm.username,
-      passwordHash: userForm.password
-    })
-    bridgeStore.setUserSession(userSession)
+    bridgeStore.setUserSession({ realm: 'emulator', username: selectedAuth.value.data.username })
     config.apps.forEach((app: TileApp) => app.status = 'pending')
   }
 
@@ -55,17 +44,18 @@ const submit = async () => {
   if (overrides?.apiUrl) bridgeStore.setApiUrl(overrides.apiUrl)
   if (overrides?.proxyUrl) bridgeStore.setProxyUrl(overrides.proxyUrl)
 
-  bridgeStore.setConfig(config, { includeAccount: ['login', 'user'].includes(selectedAuth.value.id) })
+  bridgeStore.setConfig(config, { includeAccount: ['testuser', 'bridgeuser'].includes(selectedAuth.value.id) })
   bridgeStore.showBridge()
   currentScreen.value = 'bridge'
 }
 
 onMounted(async () => {
   bridgeStore.showVersion()
-  await getAuthOptions()
+  await getAuth()
   await getPatients()
 
-  selectedAuth.value = configState.authOptions[0]
+  const filteredAuthList = configState.auth.filter((auth: any) => auth.id === selectedId.value)
+  selectedAuth.value = filteredAuthList.length ? filteredAuthList[0] : configState.auth[0]
 })
 </script>
 
@@ -73,10 +63,10 @@ onMounted(async () => {
   <div class="relative p-4 gap-5 grid">
     <div v-if="currentScreen === 'setup'" class="grid gap-5 p-8">
       <div class="text-xl">Authentication</div>
-      <div v-if="configState.authOptions" class="flex flex-wrap items-center gap-5">
-        <label v-for="authOpt in configState.authOptions">
-          <input type="radio" name="authGroup" :value="authOpt" v-model="selectedAuth" />
-          {{ authOpt.label }}
+      <div v-if="configState.auth" class="flex flex-wrap items-center gap-5">
+        <label v-for="auth in configState.auth">
+          <input type="radio" name="authGroup" :value="auth" v-model="selectedAuth" />
+          {{ auth.label }}
         </label>
       </div>
       <div v-if="selectedAuth">
@@ -84,14 +74,10 @@ onMounted(async () => {
         <br />
         {{ selectedAuth.desc }}
       </div>
-      <div v-if="selectedAuth && selectedAuth.id === 'login'" class="flex flex-wrap gap-2">
-        <input name="username" placeholder="Email" class="textinput" v-model="userForm.username" />
-        <input name="password" placeholder="Password" :type="showPassword ? 'text' : 'password'" class="textinput"
-          v-model="userForm.password" />
-        <button class="btn-icon" @click="showPassword = !showPassword">
-          <div v-if="showPassword" class="i-tabler-eye-off"></div>
-          <div v-else class="i-tabler-eye"></div>
-        </button>
+      <div v-if="selectedAuth && selectedAuth.id === 'bridgeuser'" class="flex flex-wrap gap-2">
+        <a href="https://bridge.arrowhealth.io/login" target="bridge" class="text-blue-500 font-medium">
+          Login to account
+        </a>
       </div>
 
       <div class="mt-4 flex flex-wrap gap-2">
@@ -105,8 +91,7 @@ onMounted(async () => {
         <select v-model="selectedPatient" class="px-2 p-1 border-2 border-gray-200 rounded">
           <option value>None</option>
           <option v-for="patient in patientState.patients" :value="patient">{{
-            `${patient.id} - ${patient.first}
-                      ${patient.last}`
+            `${patient.id} - ${patient.first} ${patient.last}`
           }}</option>
         </select>
       </div>
