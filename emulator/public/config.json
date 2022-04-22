@@ -87,8 +87,8 @@
     }
   ],
   "overrides": {
-    "accountUrl": "https://bridge.arrowhealth.io",
-    "apiUrl": "https://api.bridge.arrowhealth.io",
-    "proxyUrl": "https://proxy.bridge.arrowhealth.io"
+    "accountUrl": "https://staging.bridge.arrowhealth.io",
+    "apiUrl": "https://staging.api.bridge.arrowhealth.io",
+    "proxyUrl": "https://staging.proxy.bridge.arrowhealth.io"
   }
 }
