@@ -3,13 +3,16 @@
   "version": "1.0.0-rc3",
   "private": true,
   "scripts": {
-    "install:all": "pnpm recursive install",
-    "react": "concurrently \"cd react/app && pnpm dev\" \"cd react/tile && pnpm dev\" \"cd emulator && pnpm dev\"",
-    "svelte": "concurrently \"cd svelte/app && pnpm dev\" \"cd svelte/tile && pnpm dev\" \"cd emulator && pnpm dev\"",
-    "vanilla": "concurrently \"cd vanilla/app && pnpm dev\" \"cd vanilla/tile && pnpm dev\" \"cd emulator && pnpm dev\"",
-    "vue": "concurrently \"cd vue/app && pnpm dev\" \"cd vue/tile && pnpm dev\" \"cd emulator && pnpm dev\""
+    "react:install": "npm i && cd react/app && npm i && cd ../tile && npm i && cd ../../emulator && npm i",
+    "react": "concurrently \"cd react/app && npm run dev\" \"cd react/tile && npm run dev\" \"cd emulator && npm run dev\"",
+    "svelte:install": "npm i && cd svelte/app && npm i && cd ../tile && npm i && cd ../../emulator && npm i",
+    "svelte": "concurrently \"cd svelte/app && npm run dev\" \"cd svelte/tile && npm run dev\" \"cd emulator && npm run dev\"",
+    "vanilla:install": "npm i && cd vanilla/app && npm i && cd ../tile && npm i && cd ../../emulator && npm i",
+    "vanilla": "concurrently \"cd vanilla/app && npm run dev\" \"cd vanilla/tile && npm run dev\" \"cd emulator && npm run dev\"",
+    "vue:install": "npm i && cd vue/app && npm i && cd ../tile && npm i && cd ../../emulator && npm i",
+    "vue": "concurrently \"cd vue/app && npm run dev\" \"cd vue/tile && npm run dev\" \"cd emulator && npm run dev\""
   },
   "devDependencies": {
-    "concurrently": "^7.0.0"
+    "concurrently": "^7.1.0"
   }
 }

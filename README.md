@@ -7,60 +7,58 @@ today's popular JavaScript Frameworks.
 
 The project provide starters application built using [Bridge SDK](https://arrowhealth.github.io/bridge-sdk/) on different platforms:
 
-- [Vanilla JS](vanilla)
 - [React](react)
-- [Vue](vue)
 - [Svelte](svelte)
+- [Vanilla JS](vanilla)
+- [Vue](vue)
 
-Each platform provides an Application and a SmartTile example.
+Each platform provides an `Application` and a `SmartTile` example.
 
 ## Emulator
 
-The toolkit also provides an emulator using the latest version of the Bridge platform to test your applications. The emulator
+The toolkit also provides an emulator using the `@latest` version of the Bridge platform to test your applications. The emulator
 allows you to configure your applications as well as patient information for testing against your services.
 
 ## Getting started
 
-It is recommended to install `pnpm`, today's most widely supported package manager for node.
+Install dependencies for the platform of choice. The following project examples are provided: `react`, `svelte`, `vanilla` and `vue`.
 
-Click here to install: https://pnpm.io/installation
+```sh
+# npm
+npm run <project>:install
 
-### Install dependencies
+# pnpm
+pnpm <project>:install
 
-```shell
-pnpm install:all
+# yarn
+yarn <project>:install
 ```
 
-### Running React Project
+**Example**
 
-The following command will run the Emulator, Application and SmartTile projects concurrently from a single commandline.
-
-```shell
-pnpm react
+```sh
+npm run react:install
 ```
 
-### Running Svelte Project
+### Running Examples
 
-The following command will run the Emulator, Application and SmartTile projects concurrently from a single commandline.
+The following command will run the Emulator, Application and SmartTile projects concurrently from a single commandline. Each project has its own project directory and examples. The following project examples are provided: `react`, `svelte`, `vanilla` and `vue`.
 
-```shell
-pnpm svelte
+```sh
+# npm
+npm run <project>
+
+# pnpm
+pnpm <project>
+
+# yarn
+yarn <project>
 ```
 
-### Running Vanilla Project
+**Example**
 
-The following command will run the Emulator, Application and SmartTile projects concurrently from a single commandline.
-
-```shell
-pnpm vanilla
-```
-
-### Running Vue Project
-
-The following command will run the Emulator, Application and SmartTile projects concurrently from a single commandline.
-
-```shell
-pnpm vue
+```sh
+npm run react
 ```
 
 The projects will run on the following ports:
