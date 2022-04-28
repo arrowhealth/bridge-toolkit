@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, onMounted } from 'vue'
+import { computed, ref, watch, onMounted } from 'vue'
 import { useBridgeStore } from '../store/bridge'
 import { TileApp } from '../store/schema'
 import { usePatientStore } from '../store/patient'
@@ -12,6 +12,11 @@ const { state: patientState, getPatients } = usePatientStore()
 const selectedAuth = ref()
 const currentScreen = ref('setup')
 const selectedId = useLocalStorage('emulator:auth_id', 'mock')
+
+const loginUrl = computed(() => {
+  const url = configState.config?.overrides?.accountUrl || 'https://bridge.arrowhealth.io'
+  return url + '/login'
+})
 
 var selectedPatient = ref('')
 watch(selectedPatient, (patient: any) => {
@@ -76,7 +81,7 @@ onMounted(async () => {
         {{ selectedAuth.desc }}
       </div>
       <div v-if="selectedAuth && selectedAuth.id === 'bridgeuser'" class="flex flex-wrap gap-2">
-        <a href="https://bridge.arrowhealth.io/login" target="bridge" class="text-blue-500 font-medium">
+        <a :href="loginUrl" target="bridge" class="text-blue-500 font-medium">
           Login to account
         </a>
       </div>
