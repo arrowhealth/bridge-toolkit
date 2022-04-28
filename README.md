@@ -40,7 +40,7 @@ yarn <project>:install
 npm run react:install
 ```
 
-### Running Examples
+### Running project
 
 The following command will run the Emulator, Application and SmartTile projects concurrently from a single commandline. Each project has its own project directory and examples. The following project examples are provided: `react`, `svelte`, `vanilla` and `vue`.
 
