@@ -56,7 +56,7 @@ const submit = async () => {
 }
 
 onMounted(async () => {
-  bridgeStore.showVersion(true)
+  bridgeStore.showVersion('Emulator')
   await getAuth()
   await getPatients()
 
