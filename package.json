@@ -13,6 +13,6 @@
     "vue": "concurrently \"cd vue/app && npm run dev\" \"cd vue/tile && npm run dev\" \"cd emulator && npm run dev\""
   },
   "devDependencies": {
-    "concurrently": "^7.1.0"
+    "concurrently": "^8.0.1"
   }
 }
