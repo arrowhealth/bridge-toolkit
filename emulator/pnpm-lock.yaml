@@ -15,6 +15,9 @@ devDependencies:
   '@iconify-json/tabler':
     specifier: ^1.1.74
     version: 1.1.74
+  '@types/web-bluetooth':
+    specifier: ^0.0.17
+    version: 0.0.17
   '@unocss/reset':
     specifier: ^0.51.8
     version: 0.51.8
@@ -387,6 +390,10 @@ packages:
   /@types/web-bluetooth@0.0.16:
     resolution: {integrity: sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==}
     dev: false
+
+  /@types/web-bluetooth@0.0.17:
+    resolution: {integrity: sha512-4p9vcSmxAayx72yn70joFoL44c9MO/0+iVEBIQXe3v2h2SiAsEIo/G5v6ObFWvNKRFjbrVadNf9LqEEZeQPzdA==}
+    dev: true
 
   /@unocss/astro@0.51.8(vite@4.3.1):
     resolution: {integrity: sha512-1cY22psmzeW6f29Os7nXhrIgbjR2QI2qPU+PDEMprWiaVHlIc86WUKNzPIcuKskAQMMhWVCIN/XlCNzxZzXJqw==}
